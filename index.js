@@ -10,16 +10,15 @@ app.get('/:type/:id', (req, res) => {
 
 	time = new Date();
 
-
 	url = "https://tahvel.edu.ee/hois_back/timetableevents/"
-	if(req.params.type = "group"){
+	if(req.params.type == "group"){
 		url += "timetableByGroup/38/calendar" +
 			"?studentGroups=" + (req.params.id == "me" ? "3149" : req.params.id)
 
-	}else if(req.params.type = "teacher"){
+	}else if(req.params.type == "teacher"){
 		url += "timetableByTeacher/38/calendar" + "?teachers=" + req.params.id
 
-	}else if(req.params.type = "person"){
+	}else if(req.params.type == "person"){
 		url += "timetableByPerson/" +
 			(req.params.id == "me" ? "UbwL6b6uOvBDCg4Z665RTA" : req.params.id) +
 			"/calendar?a=1"
